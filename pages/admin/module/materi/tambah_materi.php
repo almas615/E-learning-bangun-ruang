@@ -7,7 +7,7 @@
 
         <div class="p-20">
             <form action="module/materi/aksi_tambah.php" method="POST">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="topik">Topik<span class="text-danger">*</span></label>
                     <select id="topik" name="topik" class="selectpicker form-control" data-live-search="true" required>
                         <option value="">-- pilih topik --</option>
@@ -21,7 +21,7 @@
 
 
                     </select>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="noMateri">NO Materi<span class="text-danger">*</span></label>
                     <input type="number" min="0" name="noMateri" parsley-trigger="change" required placeholder="masukkan Nomor Materi topik" class="form-control" id="noMateri">
@@ -30,12 +30,12 @@
                     <label for="judulMateri">judul Materi<span class="text-danger">*</span></label>
                     <input type="text" name="judulMateri" parsley-trigger="change" required placeholder="masukkan judul Materi topik" class="form-control" id="judulMateri">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="isiMateri">isi Materi<span class="text-danger">*</span></label>
                     <input type="hidden" name="isiMateri" id="isiMateri">
                     <trix-editor input="isiMateri"></trix-editor>
                     
-                </div>
+                </div> -->
 
 
                 <div class="form-group text-right m-b-0">

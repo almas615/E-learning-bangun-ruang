@@ -8,16 +8,16 @@
             columns from the table.
         </p>
         <div class="m-b-30" style="width: 200px;">
-            <select id="filter_topik" class="selectpicker" data-live-search="true" data-style="btn-orange" onchange="filter()">
-                <option value="0">-- pilih topik --</option>
+            <select id="filter_materi" class="selectpicker" data-live-search="true" data-style="btn-orange" onchange="filter()">
+                <option value="0">-- pilih materi --</option>
                 <?php
                 include "../../lib/koneksi.php";
-                $query = mysqli_query($koneksi, "SELECT * FROM topik");
-                while ($topik = mysqli_fetch_array($query)) {
+                $query = mysqli_query($koneksi, "SELECT * FROM materi");
+                while ($materi = mysqli_fetch_array($query)) {
                 ?>
-                    <option value="<?= $topik['id']; ?>" <?php if ($_GET['topikId'] == $topik['id']) {
+                    <option value="<?= $materi['id']; ?>" <?php if ($_GET['materiId'] == $materi['id']) {
                         echo "selected";
-                    } ?>><?= $topik['namaTopik']; ?></option>
+                    } ?>><?= $materi['judulMateri']; ?></option>
                 <?php } ?>
 
 
@@ -31,22 +31,22 @@
 
                     <th>Nomor Soal</th>
                     <th>Isi Soal</th>
-                    <th>Gambar</th>
+                   
                     <th>aksi</th>
             </thead>
             <tbody>
                 <?php
-                $topikId = $_GET['topikId'];
+                $materiId = $_GET['materiId'];
                 include "../../lib/koneksi.php";
-                $query = mysqli_query($koneksi, "SELECT * FROM soal where topikId = $topikId");
+                $query = mysqli_query($koneksi, "SELECT * FROM soal where materiId = $materiId");
                 while ($soal = mysqli_fetch_array($query)) {
                 ?>
 
                     <tr>
                         <td><?= $soal['noSoal']; ?></td>
                         <td><?= $soal['isiSoal']; ?></td>
-                        <td><?= $soal['gambar']; ?></td>
-                        <td><a class="btn btn-success waves-effect w-md waves-light" href="">Detail</a> <a class="btn btn-primary waves-effect w-md waves-light" href="">Edit</a> <a class="btn btn-danger waves-effect w-md waves-light" href="">Delete</a></td>
+                       
+                        <td><a class="btn btn-success waves-effect w-md waves-light" href="index.php?module=daftar_jawaban&id=<?= $soal['id']; ?>">Jawaban</a> <a class="btn btn-primary waves-effect w-md waves-light" href="index.php?module=edit_soal&id=<?= $soal['id']; ?>">Edit</a> <a class="btn btn-danger waves-effect w-md waves-light" href="module/soal/aksi_hapus.php?id=<?= $soal['id']; ?>">Delete</a></td>
 
                     </tr>
                 <?php } ?>
@@ -57,8 +57,8 @@
 </div>
 
 <script>
-    let filterTopik = document.getElementById('filter_topik');
+    let filterMateri = document.getElementById('filter_materi');
     function filter () {
-        window.location = 'index.php?module=daftar_soal&topikId=' + filterTopik.value;
+        window.location = 'index.php?module=daftar_soal&materiId=' + filterMateri.value;
     }
 </script>

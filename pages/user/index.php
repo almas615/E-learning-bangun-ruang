@@ -1,3 +1,7 @@
+<?php 
+session_start();
+$_SESSION['userLogin'] = 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -249,31 +253,27 @@
                     <ul>
                         <li class="menu-title">Navigation</li>
 
-                        <li class="has_sub">
+                        <!-- <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Data User </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="index.php?module=daftar_user">Daftar User</a></li>
                                 <li><a href="ui-typography.html">Tambah User</a></li>
 
                             </ul>
-                        </li>
+                        </li> -->
                         
-                        <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Materi</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="index.php?module=daftar_materi&topikId=0">Daftar Materi</a></li>
-                                <li><a href="index.php?module=tambah_materi">Tambah Materi</a></li>
-
-                            </ul>
+                        <li class="">
+                            <a href="index.php?module=daftar_materi" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Materi</span></a>
+                            
                         </li>
-                        <li class="has_sub">
+                        <!-- <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Soal </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="index.php?module=daftar_soal&materiId=0">Daftar Soal</a></li>
                                 <li><a href="index.php?module=tambah_soal"> Tambah Soal</a></li>
 
                             </ul>
-                        </li>
+                        </li> -->
 
 
                     </ul>
