@@ -3,7 +3,7 @@ include "../../lib/koneksi.php";
 session_start();
 $halamanSekarang = $_GET['noHalaman'];
 
-$totalHalaman = mysqli_fetch_array(mysqli_query($koneksi, "SELECT count(id) as total  FROM isi_materi WHERE materiId = $_GET[materiId]")); // ambil total halaman yang tersedia pada materi
+$akhirHalaman = mysqli_fetch_array(mysqli_query($koneksi, "SELECT noHalaman FROM isi_materi WHERE materiId = $_GET[materiId] ORDER BY noHalaman DESC limit 1")); // ambil total halaman yang tersedia pada materi
 $query = mysqli_query($koneksi, "SELECT *  FROM isi_materi i left join materi m on i.materiId = m.id WHERE materiId = $_GET[materiId] AND noHalaman = $_GET[noHalaman]"); // ambil data isi materi
 $isiMateri = mysqli_fetch_array($query);
 if ($isiMateri) { // jika materi yang dicari ada jalankan program berikut
@@ -31,7 +31,9 @@ if ($isiMateri) { // jika materi yang dicari ada jalankan program berikut
     $judul = "JUDUL";
 }
 
-if ($halamanSekarang == $totalHalaman['total'] or $halamanSekarang > $totalHalaman['total']) { // if untuk menentukan tujuan halaman pada tombol next
+if(!isset($akhirHalaman['noHalaman']))  $akhirHalaman['noHalaman'] = "0";
+
+if ($halamanSekarang == $akhirHalaman['noHalaman'] or $halamanSekarang > $akhirHalaman['noHalaman']) { // if untuk menentukan tujuan halaman pada tombol next
     $nextPage = $halamanSekarang;
     $nextHidden = "invisible";
 } else {
@@ -68,7 +70,7 @@ if ($halamanSekarang == 1 or $halamanSekarang < 1) { // if untuk menentukan tuju
     }
 
     .navbar {
-        background-color: cadetblue;
+        background-color: #3b3d40;
     }
 
     a {
@@ -90,27 +92,27 @@ if ($halamanSekarang == 1 or $halamanSekarang < 1) { // if untuk menentukan tuju
         }
     }
 </style>
-<title>Hello, world!</title>
+<link rel="shortcut icon" href="../../public/template/default/assets/images/icons/graduation_cap.svg">
+<title>E-Learning | Belajar</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><?= "Materi " . $judul; ?></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <a class="navbar-brand text-uppercase" style="margin-right: 50px;color: white;font-weight: bold;" href="#"><?= "Materi " . $judul; ?></a>
+
+            <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./../../../../pages/user/index.php?module=daftar_materi">Daftar Materi</a>
+                    <li class="nav-item" style="margin-right: 20px;">
+                        <a class="nav-link active btn " style="background-color: white;" aria-current="page" href="./../../../../pages/user/index.php?module=daftar_materi">Daftar Materi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php?materiId=<?= $_GET['materiId']; ?>&noHalaman=1">Mulai Ulang</a>
+                        <a class="nav-link active btn " style="background-color: white;" aria-current="page" href="index.php?materiId=<?= $_GET['materiId']; ?>&noHalaman=1">Mulai Ulang</a>
                     </li>
 
                 </ul>
             </div>
+            <a href="./../../../../pages/user/index.php?module=daftar_materi" style="margin-left: 50px;text-decoration: none;color: white;"><i class="fa fa-times-circle fa-2x"></i></a>
         </div>
     </nav>
     <section>

@@ -3,9 +3,7 @@
 
         <h4 class="m-t-0 header-title"><b>Daftar User</b></h4>
         <p class="text-muted font-13 m-b-30">
-            Responsive is an extension for DataTables that resolves that problem by optimising the
-            table's layout for different screen sizes through the dynamic insertion and removal of
-            columns from the table.
+            
         </p>
 
         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
@@ -14,8 +12,8 @@
 
                     <th>Nama</th>
                     <th>Username</th>
-                    <th>Progres Materi</th>
-
+                    <th>status</th>
+                    <th>aksi</th>
             </thead>
             <tbody>
                 <?php
@@ -27,8 +25,8 @@
                     <tr>
                         <td><?= $user['nama']; ?></td>
                         <td><?= $user['username']; ?></td>
-                        <td><?= $user['progresMateri']; ?></td>
-
+                        <td><?php echo ($user['isActive'] == 1)? "Aktif" :  "tidak aktif" ?></td>
+                        <td><a class="btn btn-primary waves-effect w-md waves-light" href="module/user/aksi_edit.php?id=<?= $user['id']; ?>&action=<?= ($user['isActive']== 1)? "0":"1" ?>"><?= ($user['isActive']== 1)? "Non Aktifkan":"Aktifkan" ?></a></td>
                     </tr>
                 <?php } ?>
 

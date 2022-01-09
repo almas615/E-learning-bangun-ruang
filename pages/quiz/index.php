@@ -32,7 +32,7 @@ if ($materi) {
     }
 
     .navbar {
-        background-color: cadetblue;
+        background-color: #3b3d40;
     }
 
     a {
@@ -75,27 +75,30 @@ if ($materi) {
         }
     }
 </style>
-<title>Hello, world!</title>
+<link rel="shortcut icon" href="../../public/template/default/assets/images/icons/graduation_cap.svg">
+<title>Quiz | E-Learning</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><?= "QUIZZ Materi " . $judul; ?></a>
+            <a class="navbar-brand text-uppercase" style="margin-right: 50px;color: white;font-weight: bold;" href="#"><?= "QUIZZ Materi " . $judul; ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./../../../../pages/user/index.php?module=daftar_materi">Daftar Materi</a>
+                    <li class="nav-item" style="margin-right: 20px;">
+                        <a class="nav-link active btn " style="background-color: white;" aria-current="page" href="./../../../../pages/user/index.php?module=daftar_materi">Daftar Materi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php?materiId=<?= $_GET['materiId']; ?>">Mulai Ulang</a>
+                        <a class="nav-link active btn " style="background-color: white;" aria-current="page" href="index.php?materiId=<?= $_GET['materiId']; ?>">Mulai Ulang</a>
                     </li>
 
                 </ul>
             </div>
+            <a href="./../../../../pages/user/index.php?module=daftar_materi" style="margin-left: 50px;text-decoration: none;color: white;"><i class="fa fa-times-circle fa-2x"></i></a>
+
         </div>
     </nav>
     <section>
@@ -104,7 +107,7 @@ if ($materi) {
             <div style="max-width: 70vw;">
                 <form action="aksi_simpan.php?materiId=<?= $_GET['materiId']; ?>" method="post">
                     <?php
-                    $query = mysqli_query($koneksi, "SELECT *  FROM soal  WHERE materiId = $_GET[materiId]"); // ambil data isi soal
+                    $query = mysqli_query($koneksi, "SELECT *  FROM soal  WHERE materiId = $_GET[materiId] ORDER BY noSoal ASC"); // ambil data isi soal
                     if ($query) {
                         $no = 0;
                         while ($isiSoal = mysqli_fetch_array($query)) {

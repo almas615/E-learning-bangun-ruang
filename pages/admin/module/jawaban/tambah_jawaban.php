@@ -2,10 +2,11 @@
     <div class="card-box">
         <h4 class="header-title m-t-0">Tambah Jawaban</h4>
         <p class="text-muted font-13 m-b-10">
-            Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
+            
         </p>
 
         <div class="p-20">
+            
             <form action="module/jawaban/aksi_tambah.php?idSoal=<?= $_GET['idSoal']; ?>" method="POST">
                 
                 <div class="form-group">

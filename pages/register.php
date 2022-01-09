@@ -50,25 +50,30 @@ if (isset($_SESSION['userLogin'])) {
 <body class="text-center">
 
     <main class="form-signin">
-        <form action="aksi_login.php" method="post">
-            <img class="mb-4" src="../../public/template/default/assets/images/icons/graduation_cap.svg" alt="" width="132" height="117">
-            <h1 class="h3 mb-3 fw-normal">Mulai E-Learning</h1>
+        <form action="aksi_register.php" method="post">
+        <img class="mb-4" src="../../public/template/default/assets/images/icons/graduation_cap.svg" alt="" width="132" height="117">
+
+            <h1 class="h3 mb-3 fw-normal">Daftar E-Learnig</h1>
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
+                <input type="text" class="form-control" id="floatingInput" name="nama" placeholder="name@example.com" required>
+                <label for="floatingInput">Nama</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="username" placeholder="name@example.com" required>
                 <label for="floatingInput">Username</label>
             </div>
             <div class="form-floating">
-                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
             </div>
 
             <div class="checkbox mb-3">
                 <label>
-                    belum punya akun? <a href="register.php">daftar</a> sekarang
+                     <a href="login.php">Kembali</a>
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-dark" type="submit">Sign in</button>
+            <button class="w-100 btn btn-lg btn-dark" type="submit">Sign up</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
         </form>
     </main>

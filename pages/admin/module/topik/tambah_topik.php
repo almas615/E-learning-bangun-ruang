@@ -2,7 +2,7 @@
     <div class="card-box">
         <h4 class="header-title m-t-0">Tambah Topik</h4>
         <p class="text-muted font-13 m-b-10">
-            Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
+            
         </p>
 
         <div class="p-20">

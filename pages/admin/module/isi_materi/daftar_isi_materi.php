@@ -9,9 +9,7 @@ $materi = mysqli_fetch_array($query);
 
         <h4 class="m-t-0 header-title"><b>Daftar Isi Materi <?= $materi['judulMateri']; ?></b></h4>
         <p class="text-muted font-13 m-b-30">
-            Responsive is an extension for DataTables that resolves that problem by optimising the
-            table's layout for different screen sizes through the dynamic insertion and removal of
-            columns from the table.
+            
         </p>
         <a class="btn btn-primary waves-effect w-md waves-light" href="index.php?module=tambah_isi_materi&materiId=<?= $materiId; ?>">Tambah</a>
         <br><br>
@@ -35,7 +33,7 @@ $materi = mysqli_fetch_array($query);
                     <tr>
                         <td><?= $isi['noHalaman']; ?></td>
                         <td><?= $isi['isiHalaman']; ?></td>
-                        <td><a class="btn btn-success waves-effect w-md waves-light" href="">Detail</a> <a class="btn btn-primary waves-effect w-md waves-light" href="index.php?module=edit_isi_materi&id=<?= $isi['id']; ?>">Edit</a> <a class="btn btn-danger waves-effect w-md waves-light" href="module/isi_materi/aksi_hapus.php?id=<?= $isi['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a></td>
+                        <td><a class="btn btn-success waves-effect w-md waves-light" href="">Detail</a> <a class="btn btn-primary waves-effect w-md waves-light" href="index.php?module=edit_isi_materi&id=<?= $isi['id']; ?>">Ubah</a> <a class="btn btn-danger waves-effect w-md waves-light" href="module/isi_materi/aksi_hapus.php?id=<?= $isi['id']; ?>" onclick="return confirm('Are you sure?')">Hapus</a></td>
 
                     </tr>
                 <?php } ?>

@@ -8,5 +8,5 @@ $queryHapus = mysqli_query($koneksi, "DELETE FROM isi_materi WHERE id='$idIsi'")
 if ($queryHapus) {
     echo "<script>window.location = '../../index.php?module=daftar_isi_materi&materiId=". $isi['materiId'] ."';</script>";
 } else {
-    echo "<script>alert ('Data isi materi gagal dihapus'); window.location = '../../index.php?module=daftar_isi_materi&materiId=". $isi['materiId'] ."';</script>";;
+    echo "<script>alert ('Data isi materi gagal dihapus'); window.location = '../../index.php?module=daftar_isi_materi&materiId=". $isi['materiId'] ."';</script>";
 }

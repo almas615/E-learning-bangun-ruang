@@ -1,10 +1,10 @@
 <?php 
 include "../../../../lib/koneksi.php";
 // $topik = $_POST['topik'];
-$noMateri = $_POST['noMateri'];
+
 $judulMateri = $_POST['judulMateri'];
 // $isiMateri = $_POST['isiMateri'];
-$querySimpan = mysqli_query($koneksi, "INSERT INTO materi(noMateri,judulMateri) VALUES('$noMateri','$judulMateri')");
+$querySimpan = mysqli_query($koneksi, "INSERT INTO materi(judulMateri) VALUES('$judulMateri')");
 if ($querySimpan) {
     echo "<script>alert ('data materi berhasil masuk'); window.location='../../index.php?module=daftar_materi&topikId=0';</script>";
 } else {

@@ -1,6 +1,6 @@
 <?php 
 include "../../../../lib/koneksi.php";
-$materi = $_POST['materi'];
+$materi = $_GET['materi'];
 $noSoal = $_POST['noSoal'];
 $isiSoal = $_POST['isiSoal'];
 $querySimpan = mysqli_query($koneksi, "INSERT INTO soal(materiId,noSoal,isiSoal) VALUES('$materi','$noSoal','$isiSoal')");

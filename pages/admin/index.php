@@ -1,3 +1,13 @@
+<?php 
+session_start();
+if(!isset($_SESSION['userLogin'])){
+    header('location:../login.php');
+}
+if ($_SESSION['hak_akses'] != "admin") {
+    header('location:../login.php');
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +18,9 @@
     <meta name="author" content="Coderthemes">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="../../public/template/default/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../../public/template/default/assets/images/icons/graduation_cap.svg">
     <!-- App title -->
-    <title>Zircos - Responsive Admin Dashboard Template</title>
+    <title>E-Learning</title>
 
     <!-- date range picker -->
     <link href="../../public/template/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -49,7 +59,7 @@
     <script type="text/javascript" src="../../public/js/trix.js"></script>
     <script type="text/javascript" src="../../public/js/attachments.js"></script>
     <script src="../../public/template/default/assets/js/modernizr.min.js"></script>
-   
+
 </head>
 
 
@@ -63,7 +73,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo"><span>Zir<span>cos</span></span><i class="mdi mdi-layers"></i></a>
+                <a href="index.html" class="logo"><span>E<span>-Learning</span></span><i class="mdi mdi-layers"></i></a>
                 <!-- Image logo -->
                 <!--<a href="index.html" class="logo">-->
                 <!--<span>-->
@@ -86,135 +96,11 @@
                                 <i class="mdi mdi-menu"></i>
                             </button>
                         </li>
-                        <li class="hidden-xs">
-                            <form role="search" class="app-search">
-                                <input type="text" placeholder="Search..." class="form-control">
-                                <a href=""><i class="fa fa-search"></i></a>
-                            </form>
-                        </li>
-                        <li class="hidden-xs">
-                            <a href="#" class="menu-item">New</a>
-                        </li>
-                        <li class="dropdown hidden-xs">
-                            <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="#" aria-expanded="false">English
-                                <span class="caret"></span></a>
-                            <ul role="menu" class="dropdown-menu">
-                                <li><a href="#">German</a></li>
-                                <li><a href="#">French</a></li>
-                                <li><a href="#">Italian</a></li>
-                                <li><a href="#">Spanish</a></li>
-                            </ul>
-                        </li>
+                       
                     </ul>
 
                     <!-- Right(Notification) -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" class="right-menu-item dropdown-toggle" data-toggle="dropdown">
-                                <i class="mdi mdi-bell"></i>
-                                <span class="badge up bg-success">4</span>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right dropdown-lg user-list notify-list">
-                                <li>
-                                    <h5>Notifications</h5>
-                                </li>
-                                <li>
-                                    <a href="#" class="user-list-item">
-                                        <div class="icon bg-info">
-                                            <i class="mdi mdi-account"></i>
-                                        </div>
-                                        <div class="user-desc">
-                                            <span class="name">New Signup</span>
-                                            <span class="time">5 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="user-list-item">
-                                        <div class="icon bg-danger">
-                                            <i class="mdi mdi-comment"></i>
-                                        </div>
-                                        <div class="user-desc">
-                                            <span class="name">New Message received</span>
-                                            <span class="time">1 day ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="user-list-item">
-                                        <div class="icon bg-warning">
-                                            <i class="mdi mdi-settings"></i>
-                                        </div>
-                                        <div class="user-desc">
-                                            <span class="name">Settings</span>
-                                            <span class="time">1 day ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="all-msgs text-center">
-                                    <p class="m-0"><a href="#">See all Notification</a></p>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#" class="right-menu-item dropdown-toggle" data-toggle="dropdown">
-                                <i class="mdi mdi-email"></i>
-                                <span class="badge up bg-danger">8</span>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right dropdown-lg user-list notify-list">
-                                <li>
-                                    <h5>Messages</h5>
-                                </li>
-                                <li>
-                                    <a href="#" class="user-list-item">
-                                        <div class="avatar">
-                                            <img src="../../public/template/default/assets/images/users/avatar-2.jpg" alt="">
-                                        </div>
-                                        <div class="user-desc">
-                                            <span class="name">Patricia Beach</span>
-                                            <span class="desc">There are new settings available</span>
-                                            <span class="time">2 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="user-list-item">
-                                        <div class="avatar">
-                                            <img src="../../public/template/default/assets/images/users/avatar-3.jpg" alt="">
-                                        </div>
-                                        <div class="user-desc">
-                                            <span class="name">Connie Lucas</span>
-                                            <span class="desc">There are new settings available</span>
-                                            <span class="time">2 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="user-list-item">
-                                        <div class="avatar">
-                                            <img src="../../public/template/default/assets/images/users/avatar-4.jpg" alt="">
-                                        </div>
-                                        <div class="user-desc">
-                                            <span class="name">Margaret Becker</span>
-                                            <span class="desc">There are new settings available</span>
-                                            <span class="time">2 hours ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="all-msgs text-center">
-                                    <p class="m-0"><a href="#">See all Messages</a></p>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript:void(0);" class="right-bar-toggle right-menu-item">
-                                <i class="mdi mdi-settings"></i>
-                            </a>
-                        </li>
 
                         <li class="dropdown user-box">
                             <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
@@ -223,12 +109,10 @@
 
                             <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
                                 <li>
-                                    <h5>Hi, John</h5>
+                                    <h5>Hi, <?= $_SESSION['nama']; ?></h5>
                                 </li>
-                                <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                <li><a href="index.php?module=edit_profile"><i class="ti-user m-r-5"></i> Profile</a></li>
+                                <li><a href="../logout.php"><i class="ti-power-off m-r-5"></i> Logout</a></li>
                             </ul>
                         </li>
 
@@ -250,27 +134,34 @@
                         <li class="menu-title">Navigation</li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Data User </span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-account-box"></i> <span> Data Admin </span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="index.php?module=daftar_admin">Daftar Admin</a></li>
+                                <li><a href="index.php?module=tambah_admin">Tambah Admin</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-account-box"></i> <span> Data User </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="index.php?module=daftar_user">Daftar User</a></li>
-                                <li><a href="ui-typography.html">Tambah User</a></li>
 
                             </ul>
                         </li>
-                        
+
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Materi</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Judul Materi</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="index.php?module=daftar_materi&topikId=0">Daftar Materi</a></li>
-                                <li><a href="index.php?module=tambah_materi">Tambah Materi</a></li>
+                                <li><a href="index.php?module=daftar_materi&topikId=0">Daftar Judul</a></li>
+                                <li><a href="index.php?module=tambah_materi">Tambah Judul</a></li>
 
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Soal </span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-comment-text-outline"></i> <span> Soal </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="index.php?module=daftar_soal&materiId=0">Daftar Soal</a></li>
-                                <li><a href="index.php?module=tambah_soal"> Tambah Soal</a></li>
+                                <!-- <li><a href="index.php?module=tambah_soal"> Tambah Soal</a></li> -->
 
                             </ul>
                         </li>
@@ -281,11 +172,7 @@
                 <!-- Sidebar -->
                 <div class="clearfix"></div>
 
-                <div class="help-box">
-                    <h5 class="text-muted m-t-0">For Help ?</h5>
-                    <p class=""><span class="text-custom">Email:</span> <br /> kimcilsupport@support.com</p>
-                    <p class="m-b-0"><span class="text-custom">Call:</span> <br /> (+123) 123 456 789</p>
-                </div>
+                
 
             </div>
             <!-- Sidebar -left -->
@@ -307,17 +194,9 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="page-title-box">
-                                <h4 class="page-title">Dashboard 2 </h4>
+                                <h4 class="page-title"> </h4>
                                 <ol class="breadcrumb p-0 m-0">
-                                    <li>
-                                        <a href="#">Zircos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard </a>
-                                    </li>
-                                    <li class="active">
-                                        Dashboard 2
-                                    </li>
+                                   
                                 </ol>
                                 <div class="clearfix"></div>
                             </div>
@@ -336,15 +215,16 @@
                             include "module/topik/daftar_topik.php";
                         } elseif ($_GET['module'] == "daftar_materi") {
                             include "module/materi/daftar_materi.php";
-                        } 
-                        elseif ($_GET['module'] == "daftar_soal") {
+                        } elseif ($_GET['module'] == "daftar_soal") {
                             include "module/soal/daftar_soal.php";
-                        } 
-                        elseif ($_GET['module'] == "daftar_jawaban") {
+                        } elseif ($_GET['module'] == "daftar_jawaban") {
                             include "module/jawaban/daftar_jawaban.php";
                         } 
                         elseif ($_GET['module'] == "daftar_isi_materi") {
                             include "module/isi_materi/daftar_isi_materi.php";
+                        } 
+                        elseif ($_GET['module'] == "daftar_admin") {
+                            include "module/admin/daftar_admin.php";
                         } 
                         elseif ($_GET['module'] == "edit_user") {
                             include "module/user/edit_user.php";
@@ -352,15 +232,19 @@
                             include "module/topik/edit_topik.php";
                         } elseif ($_GET['module'] == "edit_materi") {
                             include "module/materi/edit_materi.php";
-                        } 
-                        elseif ($_GET['module'] == "edit_soal") {
+                        } elseif ($_GET['module'] == "edit_soal") {
                             include "module/soal/edit_soal.php";
-                        } 
-                        elseif ($_GET['module'] == "edit_jawaban") {
+                        } elseif ($_GET['module'] == "edit_jawaban") {
                             include "module/jawaban/edit_jawaban.php";
                         } 
                         elseif ($_GET['module'] == "edit_isi_materi") {
                             include "module/isi_materi/edit_isi_materi.php";
+                        } 
+                        elseif ($_GET['module'] == "edit_admin") {
+                            include "module/admin/edit_admin.php";
+                        } 
+                        elseif ($_GET['module'] == "edit_profile") {
+                            include "module/profile/index.php";
                         } 
                         elseif ($_GET['module'] == "tambah_user") {
                             include "module/user/tambah_user.php";
@@ -368,16 +252,17 @@
                             include "module/topik/tambah_topik.php";
                         } elseif ($_GET['module'] == "tambah_materi") {
                             include "module/materi/tambah_materi.php";
-                        } 
-                        elseif ($_GET['module'] == "tambah_soal") {
+                        } elseif ($_GET['module'] == "tambah_soal") {
                             include "module/soal/tambah_soal.php";
-                        }
-                        elseif ($_GET['module'] == "tambah_jawaban") {
+                        } elseif ($_GET['module'] == "tambah_jawaban") {
                             include "module/jawaban/tambah_jawaban.php";
-                        }
+                        } 
                         elseif ($_GET['module'] == "tambah_isi_materi") {
                             include "module/isi_materi/tambah_isi_materi.php";
-                        }
+                        } 
+                        elseif ($_GET['module'] == "tambah_admin") {
+                            include "module/admin/tambah_admin.php";
+                        } 
                         else {
                             include "module/home/index.php";
                         }
@@ -390,7 +275,7 @@
             </div> <!-- content -->
 
             <footer class="footer text-right">
-                2016 - 2018 © Zircos theme by Coderthemes.
+                2022 © ELearning theme by Doraemon689.
             </footer>
 
         </div>
@@ -612,7 +497,7 @@
         });
         TableManageButtons.init();
     </script>
-    
+
 </body>
 
 </html>
