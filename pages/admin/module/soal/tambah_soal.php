@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "../../lib/koneksi.php";
 $query = mysqli_query($koneksi, "SELECT * FROM materi WHERE id = '$_GET[materiId]'");
 $materi = mysqli_fetch_array($query);
@@ -7,15 +7,15 @@ $materi = mysqli_fetch_array($query);
     <div class="card-box">
         <h4 class="header-title m-t-0">Tambah Soal Materi <?= $materi['judulMateri']; ?></h4>
         <p class="text-muted font-13 m-b-10">
-            
+
         </p>
 
         <div class="p-20">
-        <div class="form-group">
+            <div class="form-group">
                 <select id="isActive" name="isActive" class="form-control" data-live-search="true" Readonly>
                     <option value="">-- Daftar Soal Yang Telah Terdata --</option>
                     <?php
-                        include "../../lib/koneksi.php";
+                    include "../../lib/koneksi.php";
                     $queryNoHalaman = mysqli_query($koneksi, "SELECT noSoal FROM soal where materiId=$_GET[materiId]");
                     while ($no = mysqli_fetch_array($queryNoHalaman)) {
                     ?>
@@ -32,7 +32,7 @@ $materi = mysqli_fetch_array($query);
                     <label for="isiSoal">isi Soal<span class="text-danger">*</span></label>
                     <input type="hidden" name="isiSoal" id="isiSoal">
                     <trix-editor input="isiSoal"></trix-editor>
-                    
+
                 </div>
 
 
